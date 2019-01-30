@@ -60,6 +60,17 @@ class Index{
                 );
                 $response -> res_text($info);
             }// if end
+            // 二维码关注，用户已关注事件
+            if (strtolower($postObj->Event) == 'scan') {
+                $info = array(
+                    'toUser' => $postObj->FromUserName,
+                    'fromUser' => $postObj->ToUserName,
+                    'time' => time(),
+                    'msgType' => 'text',
+                    'content' => '二维码关注！'
+                );
+                $response -> res_text($info);
+            }// if end
         }//if end
 
         // 菜单click事件触发
